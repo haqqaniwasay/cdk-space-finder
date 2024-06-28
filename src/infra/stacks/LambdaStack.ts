@@ -34,6 +34,14 @@ export class LambdaStack extends Stack {
     //   })
     // );
 
+    spacesLambda.addToRolePolicy(
+      new PolicyStatement({
+        effect: Effect.ALLOW,
+        actions: ["dynamodb:PutItem", "dynamodb:Scan", "dynamodb:GetItem"],
+        resources: [props.spacesTable.tableArn],
+      })
+    );
+
     this.spacesLambdaIntegration = new LambdaIntegration(spacesLambda);
   }
 }
