@@ -1,12 +1,13 @@
 import { DeleteItemCommand, DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
+import { parseJSON } from "../shared/Utils";
 
 export async function deleteSpace(
   event: APIGatewayProxyEvent,
   ddbClient: DynamoDBClient
 ): Promise<APIGatewayProxyResult> {
   if (event.body) {
-    const parsedBody = JSON.parse(event.body);
+    const parsedBody = parseJSON(event.body);
 
     const requestBodyValue = parsedBody["id"];
 
@@ -20,7 +21,7 @@ export async function deleteSpace(
     );
 
     return {
-      statusCode: 204,
+      statusCode: 200,
       body: JSON.stringify({ message: "Deleted space successfully." }),
     };
   }
