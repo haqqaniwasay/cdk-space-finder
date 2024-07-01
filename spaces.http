@@ -1,15 +1,15 @@
-GET https://5oy5o47s4i.execute-api.us-east-2.amazonaws.com/prod/spaces?id=8ec02b86-d352-4035-a304-810bdb95304b
+GET https://3027um6hc4.execute-api.us-east-2.amazonaws.com/prod/spaces
 ###
 
 
-POST https://5oy5o47s4i.execute-api.us-east-2.amazonaws.com/prod/spaces
+POST https://3027um6hc4.execute-api.us-east-2.amazonaws.com/prod/spaces
 content-type: application/json
 {
     "location":"Paris"
 }
 ###
 
-PUT https://5oy5o47s4i.execute-api.us-east-2.amazonaws.com/prod/spaces?id=2c25b265-9423-46da-bfbb-d445e7e2813e
+PUT https://3027um6hc4.execute-api.us-east-2.amazonaws.com/prod/spaces?id=2c25b265-9423-46da-bfbb-d445e7e2813e
 content-type: application/json
 
  {

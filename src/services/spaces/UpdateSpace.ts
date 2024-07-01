@@ -12,8 +12,7 @@ export async function updateSpace(
   ) {
     const parsedBody = JSON.parse(event.body);
     const spaceId = event.queryStringParameters["id"];
-    const requestBodyKey = Object.keys(parsedBody)[0];
-    const requestBodyValue = parsedBody[requestBodyKey];
+    const requestBodyValue = parsedBody["location"];
 
     const updateResult = await ddbClient.send(
       new UpdateItemCommand({
@@ -21,15 +20,16 @@ export async function updateSpace(
         Key: {
           id: { S: spaceId },
         },
-        UpdateExpression: "set #zzzNew = :new",
+        UpdateExpression: "set #location = :new",
         ExpressionAttributeValues: {
           ":new": {
             S: requestBodyValue,
           },
         },
         ExpressionAttributeNames: {
-          "#zzzNew": requestBodyKey,
+          "#location": "location",
         },
+
         ReturnValues: "UPDATED_NEW",
       })
     );

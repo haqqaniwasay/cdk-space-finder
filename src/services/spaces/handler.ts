@@ -21,10 +21,10 @@ const handler = async (
   try {
     switch (event.httpMethod) {
       case "GET":
-        const result = getSpaces(event, ddbClient);
+        const result = await getSpaces(event, ddbClient);
         return result;
       case "POST":
-        const response = postSpaces(event, ddbClient);
+        const response = await postSpaces(event, ddbClient);
         return response;
       case "PUT":
         const putResponse = await updateSpace(event, ddbClient);
