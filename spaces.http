@@ -1,4 +1,6 @@
-GET https://3027um6hc4.execute-api.us-east-2.amazonaws.com/prod/spaces
+@url = https://3027um6hc4.execute-api.us-east-2.amazonaws.com/prod/
+
+GET {{url}}/spaces
 ###
 
 
