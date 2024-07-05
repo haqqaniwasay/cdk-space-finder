@@ -3,6 +3,7 @@ import { DataStack } from "./stacks/DataStack";
 import { LambdaStack } from "./stacks/LambdaStack";
 import { ApiStack } from "./stacks/ApiStack";
 import { AuthStack } from "./stacks/AuthStack";
+import { CdkCicdStack } from "./stacks/CdkStack";
 
 const app = new App();
 const dataStack = new DataStack(app, "DataStack");
@@ -14,3 +15,7 @@ new ApiStack(app, "ApiStack", {
   spacesLambdaIntegration: lambdaStack.spacesLambdaIntegration,
   userPool: authStack.userPool,
 });
+
+new CdkCicdStack(app, "CdkCicdStack");
+
+app.synth();
